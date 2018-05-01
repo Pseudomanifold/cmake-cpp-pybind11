@@ -27,11 +27,11 @@ PYBIND11_MODULE(example, m)
   namespace py = pybind11;
 
   py::class_<Example>(m, "Example")
-    .def( "__init__",
-      [] ( Example& instance, double a )
-      {
-        new (&instance) Example( a );
-      }
+    .def( py::init( []( double a )
+            {
+              return new Example(a);
+            }
+          )
     )
     .def( "__iadd__", &Example::operator+= );
 }
