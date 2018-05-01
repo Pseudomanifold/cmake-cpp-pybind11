@@ -13,6 +13,5 @@ setup(
   },
   package_data = {
     '': ['example.so']
-  },
-  python_requires = '>3.0.0'
+  }
 )
